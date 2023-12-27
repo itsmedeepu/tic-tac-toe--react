@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-function Player({ playername, symbol, isActive }) {
+function Player({ playername, symbol, isActive, OnChangeName }) {
   const [isEditing, setIsEditing] = useState(false);
   const [player, setplayer] = useState(playername);
   const handleClick = () => {
     setIsEditing((editing) => !editing);
+    if (isEditing) OnChangeName(symbol, player);
   };
-
   const handleSave = (event) => {
     setplayer(() => event.target.value);
   };
