@@ -59,11 +59,11 @@ function App() {
   const [gameTurns, setGameTurns] = useState([]);
   const currentPlayer = dervideCurrentPlayer(gameTurns);
 
-  const hasDraw = gameTurns.length === 9 && !winner;
-
   const gameBoard = dervieGameBoard(gameTurns);
 
   const winner = deriveWinner(gameBoard, players);
+
+  const hasDraw = gameTurns.length === 9 && !winner;
 
   const handleSelect = (rowIdx, colIdx) => {
     setGameTurns((prevturns) => {
@@ -112,7 +112,7 @@ function App() {
         )}
         <GameBoard board={gameBoard} onSelectSquare={handleSelect} />
         <div>
-          <p style={{ "text-align": "center" }}>Designed By Deepak 😁</p>
+          <p style={{ textAlign: "center" }}>Designed By Deepak 😁</p>
         </div>
       </div>
       <Log turns={gameTurns} />
